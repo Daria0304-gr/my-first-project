@@ -4,30 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2
+namespace ConsoleApp1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string message = GetHello();
-            int sum = GetSum();
-
-            Console.WriteLine(message);  
-            Console.WriteLine(sum);     
-
-            Console.ReadKey();
+            try
+            {
+                int x = 10;
+                int y = x / 0;
+                Console.WriteLine($"Результат: {y}");
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Возникло исключение DivideByZeroException");
+            }
+            finally
+            {
+                Console.WriteLine("Блок finally");
+            }
+            Console.WriteLine("Конец программы");
+            Console.Read();
         }
-        static string GetHello()
-        {  
-            return "Hello"; 
-        }
-        static int GetSum()
-        {
-            int a = 3 ;
-            int b = 7;
-            return a + b;
-        }
-    }
     
+    }
 }
